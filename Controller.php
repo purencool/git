@@ -10,9 +10,10 @@
  * Documentation:
  * Tickets:
  */
-include("src/git/gitinterface.php");
-include("src/git/gitabstract.php");
-include("src/git/gitmodel.php");
+include("src/git/GitInterface.php");
+include("src/git/GitAbstract.php");
+include("src/git/GitTraitView.php");
+include("src/git/GitModel.php");
 
 $git = new \GitModelDisplay\GitModel();
 

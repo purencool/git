@@ -31,7 +31,7 @@ abstract class GitAbstract implements \gitInterfaceDisplay\GitInterface
   abstract public function testExecutableShell();
 
   /**
-   *  forces class to create a  method so it can
+   *  forces class to create a method so it can
    *  access to GITLOG constant in exec shell
    *
    *  @return string
