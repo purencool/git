@@ -16,9 +16,6 @@ include("src/git/GitTraitView.php");
 include("src/git/GitModel.php");
 
 $git = new \GitModelDisplay\GitModel();
-
-print $git->testExecutableShell();
-
-print $git->getGitDiff();
-
-print $git->getGitLog();
+$renderShellTest = $git->testExecutableShell();
+$renderGitDiff = $git->getGitDiff();
+$renderGitLog = $git->getGitLog();
