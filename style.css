@@ -15,13 +15,18 @@
 }
 body {
 }
-.none {
+
+.diff-index pre {
+    color:pink;
+}
+
+.diff-none {
     
 }
-.removed {
+.diff-removed {
   background-color: grey;  
 }
-.added {
+.diff-added {
   background-color: orange;  
 }
 

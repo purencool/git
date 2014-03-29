@@ -48,15 +48,27 @@ trait GitTraitView
      //echo substr($inputArrVal, 0, 3);
       if(substr($inputArrVal, 0, 3) == '---' || substr($inputArrVal, 0, 1) == '-')
       {
-        $return .= "<div class='removed'>$inputArrVal</div>";
-      }
+        $return .= "<div class='diff-removed'><pre>$inputArrVal</pre></div>";
+      } 
       elseif(substr($inputArrVal, 0, 3) == '+++' || substr($inputArrVal, 0, 1) == '+')
       {
-        $return .= "<div class='added'>$inputArrVal</div>";
+        $return .= "<div class='diff-added'><pre>$inputArrVal</pre></div>";
+      }
+      elseif(substr($inputArrVal, 0, 2) == '@@')
+      {
+        $return .= "<div class='diff-code-line'><pre>$inputArrVal</pre></div>";
+      }
+      elseif(substr($inputArrVal, 0, 4) == 'diff')
+      {
+        $return .= "<div class='diff-file'><pre>$inputArrVal</pre></div>";
+      }
+      elseif(substr($inputArrVal, 0, 5) == 'index')
+      {
+        $return .= "<div class='diff-index'><pre>$inputArrVal</pre></div>";
       }
       else 
       {
-         $return .= "<div class='none'>$inputArrVal</div>"; 
+         $return .= "<div class='diff-none'><pre>$inputArrVal</pre></div>"; 
       }
     }
     return $return;
@@ -91,7 +103,7 @@ trait GitTraitView
      
      if( $retArrayPre == TRUE )
      {
-       return self::viewPre(self::getPrintrOutput($pregOutput));
+       return self::viewPre( self::getPrintrOutput($pregOutput) );
      }
      else
      {

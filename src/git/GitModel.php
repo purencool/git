@@ -36,7 +36,7 @@ class GitModel extends \GitAbstractDisplay\GitAbstract
    *  and files permissions and there owners.
    *
    *  self::viewPre() is a trait that formats the
-   *  output in <pre> tags
+   *  output in pre tags
    *
    *  @return string
    */
