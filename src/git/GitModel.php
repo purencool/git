@@ -48,21 +48,21 @@ class GitModel extends \GitAbstractDisplay\GitAbstract
   /**
    *  This method adds to GITDIFF constant into exec shell
    *
-   *  self::viewPre() is a trait that formats the
-   *  output in <pre> tags
+   *  self::viewDiff() is a trait that formats the
+   *  output into html tags
    *
    *  @return string
    */
   public function getGitDiff()
   {
-    return self::viewPre(shell_exec(self::GITDIFF));
+    return self::viewDiff(shell_exec(self::GITDIFF));
   }
 
   /**
    *  This method adds to GITLOG constant into exec shell
    *
    *  self::viewPre() is a trait that formats the
-   *  output in <pre> tags
+   *  output in pre tags
    *
    *  @return string
    */
