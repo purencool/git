@@ -23,13 +23,35 @@ trait GitTraitView
    *
    *  @return string
    */
-  public static function getPrintrOutput($pregOutput)
+  private static function getPrintrOutput($pregOutput)
   {
     ob_start();
       print_r($pregOutput);
     $preReturn = \ob_get_clean();
 
     return $preReturn;
+  }
+  
+  /**
+   *  Accepts array and prints the array into as string.
+   *
+   *  @static
+   *  @param array $pregOutput accepts array
+   *
+   *  @return string
+   */
+  private static function getPrintrOutput($inputArr = array())
+  {
+    $return = "";
+    foreach($inputArr as $inputArrVal)
+    {
+      if($inputArrVal == '---' || $inputArrVal == '-')
+      {
+        $return .= "<span class='removed'>$inputArrVal</span>";
+      }
+    }
+
+    return $return;
   }
 
   /**
@@ -66,7 +88,7 @@ trait GitTraitView
      }
      else
      {
-
+       $return = 
      }
 
      return $return;
