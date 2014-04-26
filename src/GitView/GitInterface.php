@@ -10,7 +10,7 @@
  * Documentation:
  * Tickets:
  */
-namespace GitInterfaceDisplay;
+namespace GitView;
 
 interface GitInterface
 {

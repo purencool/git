@@ -10,7 +10,7 @@
  * Documentation:
  * Tickets:
  */
-namespace GitTraitView;
+namespace GitView;
 
 trait GitTraitView
 {

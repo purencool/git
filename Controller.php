@@ -10,12 +10,18 @@
  * Documentation:
  * Tickets:
  */
-include("src/git/GitInterface.php");
-include("src/git/GitAbstract.php");
-include("src/git/GitTraitView.php");
-include("src/git/GitModel.php");
+require_once __DIR__.'/vendor/autoload.php';
 
-$git = new \GitModelDisplay\GitModel();
-$renderShellTest = $git->testExecutableShell();
-$renderGitDiff = $git->getGitDiff();
-$renderGitLog = $git->getGitLog();
+
+use GitView\GitModel;
+
+$app = new Pimple();
+
+
+$app['git.view'] = function () {
+   return new GitModel();
+};
+
+$renderShellTest = $app['git.view']->testExecutableShell();
+$renderGitDiff = $app['git.view']->getGitDiff();
+$renderGitLog = $app['git.view']->getGitLog();

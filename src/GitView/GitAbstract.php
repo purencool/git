@@ -10,9 +10,9 @@
  * Documentation:
  * Tickets:
  */
-namespace GitAbstractDisplay;
+namespace GitView;
 
-abstract class GitAbstract implements \gitInterfaceDisplay\GitInterface
+abstract class GitAbstract implements GitInterface
 {
   /**
    *  Sets path for git system executable

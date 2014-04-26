@@ -7,18 +7,18 @@
  *  @author    Purencool Website Development <purencool at gmail dot com>
  *  @license   GPLV3
  *
- * Documentation:
- * Tickets:
+ *  Documentation:
+ *  Tickets:
  */
-namespace GitModelDisplay;
+namespace GitView;
 
-class GitModel extends \GitAbstractDisplay\GitAbstract
+class GitModel extends GitAbstract
 {
 
   /**
    *  Implements the static GitTraitView
    */
-  use \GitTraitView\GitTraitView;
+  use GitTraitView;
 
   /**
    *  Sets gitExecutable path if needed
