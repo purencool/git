@@ -40,17 +40,25 @@ trait GitTraitView
    *
    *  @return string
    */
-  private static function getPrintrOutput($inputArr = array())
+  private static function getFormattedDiff($inputArr = array())
   {
     $return = "";
-    foreach($inputArr as $inputArrVal)
+      foreach($inputArr as $inputArrVal)
     {
-      if($inputArrVal == '---' || $inputArrVal == '-')
+     //echo substr($inputArrVal, 0, 3);
+      if(substr($inputArrVal, 0, 3) == '---' || substr($inputArrVal, 0, 1) == '-')
       {
-        $return .= "<span class='removed'>$inputArrVal</span>";
+        $return .= "<div class='removed'>$inputArrVal</div>";
+      }
+      elseif(substr($inputArrVal, 0, 3) == '+++' || substr($inputArrVal, 0, 1) == '+')
+      {
+        $return .= "<div class='added'>$inputArrVal</div>";
+      }
+      else 
+      {
+         $return .= "<div class='none'>$inputArrVal</div>"; 
       }
     }
-
     return $return;
   }
 
@@ -77,20 +85,17 @@ trait GitTraitView
    *  @param string $stringView for html formatting
    *  @return string
    */
-  public static function viewDiff($stringView, $retArrayPre = \TRUE)
+  public static function viewDiff($stringView, $retArrayPre = \FALSE)
   {
-     $return = "";
      $pregOutput = preg_split('/[\r\n]+/', $stringView);
-
+     
      if( $retArrayPre == TRUE )
      {
-       $return = self::viewPre(self::getPrintrOutput($pregOutput));
+       return self::viewPre(self::getPrintrOutput($pregOutput));
      }
      else
      {
-       $return = 
+       return self::getFormattedDiff($pregOutput);
      }
-
-     return $return;
   }
 }
