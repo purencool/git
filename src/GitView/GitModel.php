@@ -14,7 +14,22 @@ namespace GitView;
 
 class GitModel extends GitAbstract
 {
-
+  /**
+   *  Path to git repository path.
+   */
+  private $repositoryPath;
+    
+  /**
+   *  Configuration array for git
+   *  
+   *  @param array $configArr injecting configuration
+   *  
+   */
+  public function __construct($configArr = array()) {
+    $this->setGitRepository($configArr);
+      
+  }
+  
   /**
    *  Implements the static GitTraitView
    */
@@ -30,6 +45,33 @@ class GitModel extends GitAbstract
     $string = "";
   }
 
+  /**
+   *  Sets path for git repository
+   *
+   *  @param array $array needs key repository_path
+   *
+   *  @return void.
+   *
+   */
+   public function setGitRepository($array)
+   {
+     if (array_key_exists('repository_path', $array)) {
+       $this->repositoryPath = $array['repository_path'];
+     }
+   }
+  
+  /**
+   *  Gets path for git repository
+   *
+   *  @return string git repository path.
+   *
+   */
+   public function getGitRepository() 
+   {
+     $ret = ($this->repositoryPath)? $this->repositoryPath : 'No repo path set'; 
+     return $ret;
+   }
+  
   /**
    *  Test exec shell is able to be accessed.
    *  This test will display current directory

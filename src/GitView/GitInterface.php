@@ -49,6 +49,24 @@ interface GitInterface
    *
    */
   public function setGitExecutable($string);
+  
+  /**
+   *  Sets path for git repository
+   *
+   *  @param array $array needs key repository_path
+   *
+   *  @return void.
+   *
+   */
+  public function setGitRepository($array);
+  
+  /**
+   *  Gets path for git repository
+   *
+   *  @return string git repository path.
+   *
+   */
+  public function getGitRepository();
 
   /**
    *  Test exec shell is able to be accessed
