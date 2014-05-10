@@ -54,6 +54,8 @@ class GitModel extends GitAbstract
   /**
    *  Sets path for git repository tests if directory exists
    *  if it doesn't it returns error saying it does not exist.
+   *  If the array with the key repository_path it will return
+   *  the _DIR_ path.
    *
    *  @param array $array needs key repository_path
    *
@@ -62,12 +64,13 @@ class GitModel extends GitAbstract
    */
    public function setGitRepository($array)
    {
-     if (array_key_exists('repository_path', $array)) {
-       $pathTest = $array['repository_path'];
+     $localError = "This directory does not exist";
+      if (array_key_exists('repository_path', $array)) {
+       $pathStr = $array['repository_path'];
        if(is_dir($array['repository_path'])) {
-         $this->repositoryPath = $pathTest;
+          $this->repositoryPath = ($pathStr == '')? $localError : $pathStr ; 
        } else {
-         $this->repositoryPath = "This $pathTest directory does not exist"; 
+         $this->repositoryPath = $localError; 
        }
      }
    }
