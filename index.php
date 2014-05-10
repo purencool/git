@@ -27,6 +27,10 @@ include("Controller.php");
       <section>
         <article>
           <div>
+            <h3>Git Repository Path</h3>
+            <?php print $renderGitRepoPath;?>
+          </div>
+          <div>
             <h3>Shell Test</h3>
             <?php print $renderShellTest;?>
           </div>
