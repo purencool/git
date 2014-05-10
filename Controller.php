@@ -19,11 +19,13 @@ $app = new Pimple();
 
 
 $app['git.view'] = function () {
-   return new GitModel(array('repository_path' => 'this is the injected path'));
+   return new GitModel(array('repository_path' => '../../trace-dev/build/'));
 };
 
 $renderGitRepoPath = $app['git.view']->getGitRepository();
-$renderShellTest = $app['git.view']->testExecutableShell();
-$renderGitDiff = $app['git.view']->getGitDiff();
-$renderGitLog = $app['git.view']->getGitLog();
+$renderShellTest = $app['git.view']->testExecutableShell(true);
+echo $app['git.view']->getLastGitCommand();
+$renderGitDiff = $app['git.view']->getGitDiff(true);
+
+$renderGitLog = $app['git.view']->getGitLog(true);
 

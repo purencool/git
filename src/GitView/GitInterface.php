@@ -14,31 +14,35 @@ namespace GitView;
 
 interface GitInterface
 {
-
+  /**
+   *  @const string git command
+   */
+  const GITCOMMAND = 'git'; 
+    
   /**
    *  @const string git status command
    */
-  const GITADD = 'git status';
+  const GITSTATUS = 'status';
 
   /**
    *  @const string git diff command
    */
-  const GITDIFF = 'git diff';
+  const GITDIFF = 'diff';
 
   /**
    *  @const string gets current git branch
    */
-  const GITBRANCH = 'git branch';
+  const GITBRANCH = 'branch';
 
   /**
    *  @const string git clone command
    */
-  const GITCLONE = 'git clone';
+  const GITCLONE = 'clone';
 
   /**
    *  @const string displays git logs
    */
-  const GITLOG = 'git log';
+  const GITLOG = 'log';
 
   /**
    *  Sets path for git system executable
