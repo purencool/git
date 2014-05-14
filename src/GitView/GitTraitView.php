@@ -10,7 +10,7 @@
  * Documentation:
  * Tickets:
  */
-namespace GitTraitView;
+namespace GitView;
 
 trait GitTraitView
 {
@@ -109,5 +109,15 @@ trait GitTraitView
      {
        return self::getFormattedDiff($pregOutput);
      }
+  }
+   
+  /**
+   *  Gets variable string and wraps it in html pre tags
+   *
+   *  @return string
+  */
+  public static function className()
+  {
+    return "GitTraitView";
   }
 }

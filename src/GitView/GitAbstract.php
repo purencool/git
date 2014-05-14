@@ -10,9 +10,9 @@
  * Documentation:
  * Tickets:
  */
-namespace GitAbstractDisplay;
+namespace GitView;
 
-abstract class GitAbstract implements \gitInterfaceDisplay\GitInterface
+abstract class GitAbstract implements GitInterface
 {
   /**
    *  Sets path for git system executable
@@ -22,7 +22,25 @@ abstract class GitAbstract implements \gitInterfaceDisplay\GitInterface
    *  @return void
    */
   abstract public function setGitExecutable($string);
-
+  
+  /**
+   *  Sets path for git repository
+   *
+   *  @param array $array needs key repository_path
+   *
+   *  @return void.
+   *
+   */
+   abstract public function setGitRepository($array);
+  
+  /**
+   *  Gets path for git repository
+   *
+   *  @return string git repository path.
+   *
+   */
+   abstract public function getGitRepository();
+  
   /**
    *  Test exec shell is able to be accessed
    *
